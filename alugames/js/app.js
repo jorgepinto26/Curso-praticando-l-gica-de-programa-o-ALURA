@@ -38,10 +38,30 @@ function alterarStatus(id){
         botao.classList.add('dashboard__item__button--return');
         botao.textContent = 'Devolver';
     }else{
+        if(confirm("Deseja continuar com a devolução?")){
+            alert("Devolução concluída!");
+        }else{
+            alert("Devolução cancelada");
+            return;
+        }
         img.classList.remove('dashboard__item__img--rented');
         botao.classList.remove('dashboard__item__button--return');
         botao.textContent = 'Alugar';
     }
+    console.log(`Quantidade de jogos alugados: ${qtdJogosAlugados()}`);
+}
+
+function qtdJogosAlugados(){
+    let qtdGames = 3;
+    let contador = 0;
+    for(let i=1;i<=qtdGames;i++){
+        let game = document.getElementById(`game-${i}`);
+        let botao = game.querySelector('.dashboard__item__button');
+        if(botao.textContent == 'Devolver'){
+            contador = contador + 1;
+        }
+    }
+    return contador;
 }
 
 /* Solução desenvolvida pela ALURA: A diferença é que no meu eu chego pelo texto Alugar ou Devolver referente ao botão,
