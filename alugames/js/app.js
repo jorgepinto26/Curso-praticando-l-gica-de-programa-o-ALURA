@@ -54,7 +54,7 @@ function alterarStatus(id) {
     let nomeJogo = gameClicado.querySelector('.dashboard__item__name');
 
     if (imagem.classList.contains('dashboard__item__img--rented')) {
-        imagem.classList.remove('dashboard__item__img--rented');
+        imagem.classList.remove('dashboard__item__img--rented');""
         botao.classList.remove('dashboard__item__button--return');
         botao.textContent = 'Alugar';
     } else {
