@@ -3,11 +3,24 @@ limpar();
 
 
 function adicionar(){
-   //Recupera produto, nome, preço da unidade, quantidade e calcula valor total 
+   //Recupera produto e quantidade
    let produto = document.getElementById('produto').value;
+   let quantidade = document.getElementById('quantidade').value;
+
+   //Verificação se produto é válido
+   if(!produto || produto.trim() === ""){
+      alert("Selecione um produto válido.");
+      return;
+   }
+
+   if(isNaN(quantidade) || quantidade <= 0){
+      alert("Insira uma quantidade válida.");
+      return;
+   }
+
+   //Extrai o nome e o preço do produto, depois calcula o custo total
    let nomeDoProduto = produto.split('-')[0];
    let precoUnidade = produto.split('R$')[1];
-   let quantidade = document.getElementById('quantidade').value;
    let preco = quantidade * precoUnidade;
 
    //Adiciona produto no carrinho
